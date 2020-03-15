@@ -12,13 +12,11 @@ interface Props {
 const SEO: React.FC<Props> = ({
   title,
   description,
-  image: img,
+  image,
   pathname,
   type,
   twitterCreator
 }) => {
-  const image = img ?  `/${img}` : null;
-  const url = `/${pathname}`;
   return (
     <Head>
       <link rel="icon" href="/favicon.ico" />
@@ -42,7 +40,7 @@ const SEO: React.FC<Props> = ({
         </>
       )}
 
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={pathname} />
       {type && <meta property="og:type" content={type} />}
 
       <meta name="twitter:card" content="summary_large_image" />

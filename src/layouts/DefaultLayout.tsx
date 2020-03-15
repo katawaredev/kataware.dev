@@ -7,6 +7,7 @@ const DefaultLayout: React.FC = ({ children }) => (
     <SEO
       title="Kataware.dev"
       description="Kataware means 'a fragment, one of the group or party'; it implies being connected to a bigger whole."
+      pathname="https://kataware.dev"
       image={logoSrc}
     />
 
