@@ -1,14 +1,10 @@
-import SEO from 'components/SEO'
-import GithubLogo from 'components/GithubLogo'
-import logoSrc from '../assets/logo.svg'
+import DefaultLayout from 'layouts/DefaultLayout'
+import logoSrc from 'assets/logo.svg'
 
 const Home = () => (
+  <DefaultLayout>
   <div className="container">
-    <SEO title="Kataware.dev" />
-
-    <GithubLogo link="https://github.com/katawaredev" />
-
-    <main>
+    <div className="centered">
       <h1 className="title">
         <img src={logoSrc} className="logo" alt="Logo" />
         Kataware.dev
@@ -17,7 +13,7 @@ const Home = () => (
       <p className="description">
         <em>Kataware means "a fragment, one of the group or party "; it implies being connected to a bigger whole.</em>
       </p>
-    </main>
+    </div>
 
     <style jsx>{`
       .container {
@@ -29,7 +25,7 @@ const Home = () => (
         align-items: center;
       }
 
-      main {
+      .centered {
         padding: 5rem 0;
         flex: 1;
         display: flex;
@@ -61,24 +57,8 @@ const Home = () => (
         font-size: 1.5rem;
       }
     `}</style>
-
-    <style jsx global>{`
-      @import url('https://fonts.googleapis.com/css?family=Kodchasan&display=swap');
-
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        background-color: #e5e5e5;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-    `}</style>
   </div>
+  </DefaultLayout>
 )
 
 export default Home
