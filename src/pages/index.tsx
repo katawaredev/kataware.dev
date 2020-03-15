@@ -1,15 +1,12 @@
-import Head from 'next/head'
-import GithubLogo from "components/GithubLogo"
+import SEO from 'components/SEO'
+import GithubLogo from 'components/GithubLogo'
 import logoSrc from '../assets/logo.svg'
 
 const Home = () => (
   <div className="container">
-    <Head>
-      <title>Kataware.dev</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+    <SEO title="Kataware.dev" />
 
-    <GithubLogo />
+    <GithubLogo link="https://github.com/katawaredev" />
 
     <main>
       <h1 className="title">
