@@ -1,5 +1,5 @@
 import SEO from 'components/SEO'
-import GithubLogo from 'components/GithubLogo'
+import GithubCorner from 'react-github-corner'
 import logoSrc from '../assets/logo.png'
 
 const DefaultLayout: React.FC = ({ children }) => (
@@ -11,7 +11,7 @@ const DefaultLayout: React.FC = ({ children }) => (
       image={logoSrc}
     />
 
-    <GithubLogo link="https://github.com/katawaredev" />
+    <GithubCorner href="https://github.com/katawaredev" />
 
     <main>{children}</main>
 
