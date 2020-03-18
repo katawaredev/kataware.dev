@@ -1,6 +1,5 @@
 import SEO from 'components/SEO'
 import GithubCorner from 'react-github-corner'
-import logoSrc from '../assets/logo.png'
 
 const DefaultLayout: React.FC = ({ children }) => (
   <>
@@ -8,7 +7,7 @@ const DefaultLayout: React.FC = ({ children }) => (
       title="Kataware.dev"
       description="Kataware means 'a fragment, one of the group or party'; it implies being connected to a bigger whole."
       pathname="https://kataware.dev"
-      image={logoSrc}
+      image="https://kataware.dev/logo.png"
     />
 
     <GithubCorner href="https://github.com/katawaredev" />
