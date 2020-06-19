@@ -1,5 +1,5 @@
-import SEO from 'components/SEO'
-import GithubCorner from 'react-github-corner'
+import SEO from "components/SEO";
+import GithubCorner from "react-github-corner";
 
 const DefaultLayout: React.FC = ({ children }) => (
   <>
@@ -15,7 +15,7 @@ const DefaultLayout: React.FC = ({ children }) => (
     <main>{children}</main>
 
     <style jsx global>{`
-      @import url('https://fonts.googleapis.com/css?family=Kodchasan&display=swap');
+      @import url("https://fonts.googleapis.com/css?family=Kodchasan&display=swap");
 
       html,
       body {
@@ -30,8 +30,7 @@ const DefaultLayout: React.FC = ({ children }) => (
         box-sizing: border-box;
       }
     `}</style>
-
   </>
-)
+);
 
-export default DefaultLayout
+export default DefaultLayout;

@@ -15,7 +15,7 @@ const SEO: React.FC<Props> = ({
   image,
   pathname,
   type,
-  twitterCreator
+  twitterCreator,
 }) => {
   return (
     <Head>
