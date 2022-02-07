@@ -12,8 +12,8 @@ import GithubCorner from "~/components/GithubCorner";
 
 import { createSEO } from "~/lib/seo";
 
-import globalStyleUrl from "~/styles/global.css";
-import githubCornerStyleUrl from "~/styles/github-corner.css";
+import globalStyleUrl from "~/build/styles/global.css";
+import githubCornerStyleUrl from "~/build/styles/github-corner.css";
 
 export const handle = { hydrate: false };
 

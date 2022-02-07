@@ -1,6 +1,6 @@
 import { LinksFunction, MetaFunction } from "remix";
 
-import stylesUrl from "~/styles/home.css";
+import stylesUrl from "~/build/styles/home.css";
 
 export const handle = { hydrate: false };
 
