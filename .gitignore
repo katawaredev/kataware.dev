@@ -6,6 +6,7 @@ node_modules
 
 .env
 
+/build/
 public/build
-api/_build
 app/build
+/api/index.js
