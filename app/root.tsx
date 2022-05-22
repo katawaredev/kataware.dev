@@ -1,13 +1,5 @@
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  useMatches,
-  useCatch,
-} from "remix";
-import type { MetaFunction, LinksFunction } from "remix";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { Links, LiveReload, Meta, Outlet, Scripts, useCatch, useMatches } from "@remix-run/react";
 import GithubCorner from "~/components/GithubCorner";
 
 import { createSEO } from "~/lib/seo";
