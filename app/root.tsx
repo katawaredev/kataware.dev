@@ -13,7 +13,6 @@ import GithubCorner from "~/components/GithubCorner";
 import { createSEO } from "~/lib/seo";
 
 import tailwindUrl from "~/tailwind.css?url";
-import globalStyleUrl from "~/styles/global.css?url";
 import githubCornerStyleUrl from "~/styles/github-corner.css?url";
 
 export const handle = { hydrate: false };
@@ -21,7 +20,6 @@ export const handle = { hydrate: false };
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: tailwindUrl },
-    { rel: "stylesheet", href: globalStyleUrl },
     { rel: "stylesheet", href: githubCornerStyleUrl },
   ];
 };

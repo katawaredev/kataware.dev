@@ -10,7 +10,7 @@
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "format": "prettier --write \"**/*.{js,ts,tsx,mjs,md}\"",
+    "format": "prettier --write \"**/*.{js,ts,tsx,mjs,css,md}\"",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },
