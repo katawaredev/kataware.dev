@@ -1,5 +1,3 @@
-import type { HtmlMetaDescriptor } from "@remix-run/react";
-
 export type SEOProps = {
   title?: string;
   description?: string;
@@ -9,18 +7,14 @@ export type SEOProps = {
   twitterCreator?: string;
 };
 
-export const createSEO = (props: SEOProps): HtmlMetaDescriptor => ({
+export const createSEO = (props: SEOProps) => [
   ...createHtmlMeta(props),
   ...createOpenGraphMeta(props),
   ...createTwitterMeta(props),
-});
+];
 
-export const createHtmlMeta = ({
-  title,
-  description,
-  image,
-}: SEOProps): HtmlMetaDescriptor => {
-  const meta: HtmlMetaDescriptor = {};
+export const createHtmlMeta = ({ title, description, image }: SEOProps) => {
+  const meta: Record<string, unknown> = {};
 
   if (title) meta.title = title;
 
@@ -28,7 +22,7 @@ export const createHtmlMeta = ({
 
   if (image) meta.image = image;
 
-  return meta;
+  return [meta];
 };
 
 export const createOpenGraphMeta = ({
@@ -36,8 +30,8 @@ export const createOpenGraphMeta = ({
   description,
   image,
   url,
-}: SEOProps): HtmlMetaDescriptor => {
-  const meta: HtmlMetaDescriptor = {};
+}: SEOProps) => {
+  const meta: Record<string, unknown> = {};
 
   if (title) meta["og:title"] = title;
 
@@ -47,7 +41,7 @@ export const createOpenGraphMeta = ({
 
   if (image) meta["og:image"] = image;
 
-  return meta;
+  return [meta];
 };
 
 export const createTwitterMeta = ({
@@ -55,8 +49,8 @@ export const createTwitterMeta = ({
   description,
   image,
   twitterCreator,
-}: SEOProps): HtmlMetaDescriptor => {
-  const meta: HtmlMetaDescriptor = {
+}: SEOProps) => {
+  const meta: Record<string, unknown> = {
     "twitter:card": "summary_large_image",
   };
 
@@ -68,5 +62,5 @@ export const createTwitterMeta = ({
 
   if (twitterCreator) meta["twitter:creator"] = twitterCreator;
 
-  return meta;
+  return [meta];
 };

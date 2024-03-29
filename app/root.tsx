@@ -1,16 +1,26 @@
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import { Links, LiveReload, Meta, Outlet, Scripts, useCatch, useMatches } from "@remix-run/react";
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useMatches,
+} from "@remix-run/react";
+
 import GithubCorner from "~/components/GithubCorner";
 
 import { createSEO } from "~/lib/seo";
 
-import globalStyleUrl from "~/build/styles/global.css";
-import githubCornerStyleUrl from "~/build/styles/github-corner.css";
+import tailwindUrl from "~/tailwind.css?url";
+import globalStyleUrl from "~/styles/global.css?url";
+import githubCornerStyleUrl from "~/styles/github-corner.css?url";
 
 export const handle = { hydrate: false };
 
-export let links: LinksFunction = () => {
+export const links: LinksFunction = () => {
   return [
+    { rel: "stylesheet", href: tailwindUrl },
     { rel: "stylesheet", href: globalStyleUrl },
     { rel: "stylesheet", href: githubCornerStyleUrl },
   ];
@@ -26,59 +36,31 @@ export const meta: MetaFunction = () => {
   });
 };
 
-export default function App() {
-  const matches = useMatches();
+export function Layout({ children }: { children: React.ReactNode }) {
+  const matches = useMatches() as { handle: { hydrate: boolean } }[];
 
   // If at least one route wants to hydrate, this will return true
-  const includeScripts = matches.some((match) => match.handle?.hydrate);
-
+  const includeScripts =
+    process.env.NODE_ENV === "development" ||
+    matches.some((match) => match.handle?.hydrate);
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
       <body>
-        <Layout>
-          <Outlet />
-        </Layout>
+        <GithubCorner />
+        {children}
+        <ScrollRestoration />
         {includeScripts && <Scripts />}
-        {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
   );
 }
 
-function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <GithubCorner />
-
-      <main>{children}</main>
-    </>
-  );
-}
-
-export function CatchBoundary() {
-  const { status, statusText } = useCatch();
-  return (
-    <html>
-      <head>
-        <title>{`${statusText} | Kataware.dev`}</title>
-        <Meta />
-        <Links />
-        <link rel="stylesheet" type="text/css" href="styles/404.css"></link>
-      </head>
-      <body>
-        <Layout>
-          <h1 className="status">{status}</h1>
-          <div className="text-wrapper">
-            <h2 className="text">{statusText}.</h2>
-          </div>
-        </Layout>
-      </body>
-    </html>
-  );
+export default function App() {
+  return <Outlet />;
 }

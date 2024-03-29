@@ -1,7 +1,0 @@
-package-lock.json
-/public/build
-/.cache
-/build
-/dist
-/app/build
-api/_build
